@@ -1,3 +1,30 @@
+# 라이브러리
+
+기본 리액트에 redux, redux-toolkit, styled-component 설치했습니다.
+
+# 폴더구조
+
+📦src
+┣ 📂app -> 리덕스 스토어 생성 외 사용처 없습니다
+┃ ┗ 📜store.js
+┣ 📂assets -> 보통 사진 자료를 넣을 때 사용합니다
+┃ ┗ 📂background -> 배경화면용 사진은 이미 첨부되어있습니다.
+┃ ┃ ┣ 📜1.jpg
+┃ ┃ ┣ 📜2.jpg
+┃ ┃ ┣ 📜3.jpg
+┃ ┃ ┣ 📜4.jpg
+┃ ┃ ┗ 📜5.jpg
+┣ 📂components -> 말 그대로 컴포넌트를 넣어놓는 폴더입니다.
+┣ 📂features -> 리덕스 관련 슬라이스나 UI를 보관하는 폴더입니다.
+┃ ┗ 📂todo
+┃ ┃ ┗ 📜todoSlice.js
+┣ 📂pages -> 페이지를 담당하는 jsx를 보관하는 폴더입니다.
+┃ ┗ 📜home.jsx
+┣ 📜index.css
+┣ 📜index.jsx
+┣ 📜reportWebVitals.js
+┗ 📜setupTests.js
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 /**
  *  파라미터로 넘긴 콜백 함수를 일정 주기마다 실행시켜주는 훅
  * @param {Function} intervalCallback 주기마다 실행할 함수
@@ -5,21 +7,28 @@
  * @returns {Function[]} startInterval() 실행 시 주기마다 콜백함수 실행, pauseInterval() 실행 시 주기 종료
  */
 const useInterval = (intervalCallback, intervalTime = 1000) => {
-  let intervalId = null;
+  const [isActive, setIsActive] = useState(false);
 
-  /**
-   * 주기마다 함수 실행
-   */
   const startInterval = () => {
-    intervalId = setInterval(intervalCallback, intervalTime);
+    if (!isActive) {
+      setIsActive(true);
+    }
   };
 
-  /**
-   * 주기 종료
-   */
   const pauseInterval = () => {
-    clearInterval(intervalId);
+    setIsActive(false);
   };
+
+  useEffect(() => {
+    let intervalId;
+    if (isActive) {
+      intervalId = setInterval(intervalCallback, intervalTime);
+    }
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [isActive, intervalCallback, intervalTime]);
 
   return [startInterval, pauseInterval];
 };

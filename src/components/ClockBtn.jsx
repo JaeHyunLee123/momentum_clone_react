@@ -5,6 +5,17 @@ const Btn = styled.button`
   padding: 5px 10px;
   margin: 0px 5px;
 
+  color: white;
+  font-size: 20px;
+
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  background: black;
+  box-shadow: 0px 0px 20px tomato;
+
+  transition: all 200ms ease-in-out;
+
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
@@ -17,8 +28,8 @@ const Btn = styled.button`
  * @param props.children children components
  * @param {Function} props.onClick
  */
-const Button = ({ children, onClick }) => {
+const ClockBtn = ({ children, onClick }) => {
   return <Btn onClick={onClick}>{children}</Btn>;
 };
 
-export default Button;
+export default ClockBtn;

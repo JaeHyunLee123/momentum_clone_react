@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useEffect } from "react";
 
 /**
  * @param {Object} props
@@ -7,11 +6,6 @@ import { useEffect } from "react";
  */
 const Clock = ({ isHidden }) => {
   const [date, setDate] = useState(new Date());
-
-  // useEffect(() => {
-  //   const newDate = new Date();
-  //   setDate(newDate);
-  // }, [setDate]);
 
   setInterval(() => {
     const newDate = new Date();

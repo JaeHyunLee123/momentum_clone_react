@@ -1,4 +1,12 @@
 import { useState } from "react";
+import styled from "styled-components";
+
+const Time = styled.h1`
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 8rem;
+`;
 
 /**
  * @param {Object} props
@@ -14,9 +22,9 @@ const Clock = ({ isHidden }) => {
 
   return (
     <div hidden={isHidden}>
-      <h1>{`${String(date.getHours()).padStart(2, "0")}:${String(
+      <Time>{`${String(date.getHours()).padStart(2, "0")}:${String(
         date.getMinutes()
-      ).padStart(2, "0")}:${String(date.getSeconds()).padStart(2, "0")}`}</h1>
+      ).padStart(2, "0")}:${String(date.getSeconds()).padStart(2, "0")}`}</Time>
     </div>
   );
 };

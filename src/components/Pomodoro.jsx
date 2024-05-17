@@ -2,6 +2,8 @@ import styled from "styled-components";
 import useInterval from "../hooks/useInterval";
 import { useEffect, useState } from "react";
 import ClockBtn from "./ClockBtn";
+import useSound from "use-sound";
+import beepsound from "../assets/sound/beep-sound.mp3";
 
 const FOCUS_TIME = 25 * 60;
 const REST_TIME = 5 * 60;
@@ -34,6 +36,7 @@ const Time = styled.h1`
  * @param {Function} props.setIsClock
  */
 const Pomodoro = ({ isHidden, setIsClock }) => {
+  const [playbeep] = useSound(beepsound);
   const [remainTime, setRemainTime] = useState(FOCUS_TIME);
   const [isPause, setIsPause] = useState(true);
   const [isFocus, setIsFocus] = useState(true);
@@ -42,6 +45,10 @@ const Pomodoro = ({ isHidden, setIsClock }) => {
   });
 
   useEffect(() => {
+    if (remainTime < 4) {
+      playbeep();
+    }
+
     if (remainTime < 0) {
       if (isFocus) {
         setRemainTime(REST_TIME);
@@ -51,7 +58,7 @@ const Pomodoro = ({ isHidden, setIsClock }) => {
         setIsFocus(true);
       }
     }
-  }, [isFocus, remainTime]);
+  }, [isFocus, playbeep, remainTime]);
 
   const handleStart = () => {
     startInterval();

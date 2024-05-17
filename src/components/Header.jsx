@@ -1,7 +1,18 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import styled from "styled-components";
 
 const API_KEY = "248e737097da22a4fd455191bad84c83";
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: right;
+
+  span {
+    font-size: 2rem;
+    margin: 10px 5px 10px 5px;
+  }
+`;
 
 const Header = () => {
   const [latitude, setLatitude] = useState(-1);
@@ -33,16 +44,13 @@ const Header = () => {
         setLocation(data.name);
         setTemp(data.main.temp);
         setWeather(data.weather[0].main);
-        //weather.innerText = `${data.name} ${data.main.temp}℃ ${data.weather[0].main}`;
       });
   }, [latitude, longitude]);
 
   return (
-    <div>
-      <span>{location}</span>
-      <span>{temp}</span>
-      <span>{weather}</span>
-    </div>
+    <Wrapper>
+      <span>{`${location} ${temp}℃ ${weather}`}</span>
+    </Wrapper>
   );
 };
 

@@ -6,6 +6,19 @@ import ClockBtn from "./ClockBtn";
 const FOCUS_TIME = 25 * 60;
 const REST_TIME = 5 * 60;
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const BtnWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const Time = styled.h1`
   margin-top: 50px;
   margin-bottom: 30px;
@@ -58,9 +71,9 @@ const Pomodoro = ({ isHidden }) => {
   const second = String(Math.floor(remainTime % 60)).padStart(2, "0");
 
   return (
-    <div hidden={isHidden}>
+    <Wrapper hidden={isHidden}>
       <Time>{`${minute}:${second}`}</Time>
-      <div>
+      <BtnWrapper>
         {isPause ? (
           <ClockBtn onClick={handleStart}>
             <i className="fa-solid fa-play"></i>
@@ -73,8 +86,8 @@ const Pomodoro = ({ isHidden }) => {
         <ClockBtn onClick={handleReset}>
           <i className="fa-solid fa-repeat"></i>
         </ClockBtn>
-      </div>
-    </div>
+      </BtnWrapper>
+    </Wrapper>
   );
 };
 

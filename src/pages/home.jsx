@@ -5,8 +5,6 @@ import Pomodoro from "../components/Pomodoro";
 const Home = () => {
   const [isClock, setIsClock] = useState(true);
 
-  console.log(isClock);
-
   return (
     <div>
       <Clock isHidden={!isClock} setIsClock={setIsClock} />

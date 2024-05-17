@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  display: ${(props) => (props.hidden ? "none" : "block")};
 `;
 
 const BtnWrapper = styled.div`
@@ -30,8 +31,9 @@ const Time = styled.h1`
  *
  * @param {Object} props
  * @param {boolean} props.isHidden
+ * @param {Function} props.setIsClock
  */
-const Pomodoro = ({ isHidden }) => {
+const Pomodoro = ({ isHidden, setIsClock }) => {
   const [remainTime, setRemainTime] = useState(FOCUS_TIME);
   const [isPause, setIsPause] = useState(true);
   const [isFocus, setIsFocus] = useState(true);
@@ -74,6 +76,13 @@ const Pomodoro = ({ isHidden }) => {
     <Wrapper hidden={isHidden}>
       <Time>{`${minute}:${second}`}</Time>
       <BtnWrapper>
+        <ClockBtn
+          onClick={() => {
+            setIsClock(true);
+          }}
+        >
+          <span>Turn to clock</span>
+        </ClockBtn>
         {isPause ? (
           <ClockBtn onClick={handleStart}>
             <i className="fa-solid fa-play"></i>

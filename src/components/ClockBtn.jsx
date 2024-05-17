@@ -6,7 +6,6 @@ const Btn = styled.button`
   margin: 0px 5px;
 
   color: white;
-  font-size: 20px;
 
   padding: 10px 20px;
   border: none;

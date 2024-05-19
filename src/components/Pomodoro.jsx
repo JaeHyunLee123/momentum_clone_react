@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import ClockBtn from "./ClockBtn";
 import useSound from "use-sound";
 import beepsound from "../assets/sound/beep-sound.mp3";
+import { useDispatch } from "react-redux";
+import { increment } from "../features/totalFocusTime/totalFocusTimeSlice";
 
 const FOCUS_TIME = 25 * 60;
 const REST_TIME = 5 * 60;
@@ -37,11 +39,18 @@ const Time = styled.h1`
  */
 const Pomodoro = ({ isHidden, setIsClock }) => {
   const [playbeep] = useSound(beepsound);
+
   const [remainTime, setRemainTime] = useState(FOCUS_TIME);
   const [isPause, setIsPause] = useState(true);
   const [isFocus, setIsFocus] = useState(true);
+
+  const dispatch = useDispatch();
+
   const [startInterval, pauseInterval] = useInterval(() => {
     setRemainTime((prev) => prev - 1);
+    if (isFocus) {
+      dispatch(increment());
+    }
   });
 
   useEffect(() => {

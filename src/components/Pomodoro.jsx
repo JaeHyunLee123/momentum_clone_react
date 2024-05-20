@@ -46,7 +46,7 @@ const Pomodoro = ({ isHidden, setIsClock }) => {
 
   const dispatch = useDispatch();
 
-  const [startInterval, pauseInterval] = useInterval(() => {
+  const [startPomodoroInterval, pausePomodoroInterval] = useInterval(() => {
     setRemainTime((prev) => prev - 1);
     if (isFocus) {
       dispatch(increment());
@@ -70,17 +70,17 @@ const Pomodoro = ({ isHidden, setIsClock }) => {
   }, [isFocus, playbeep, remainTime]);
 
   const handleStart = () => {
-    startInterval();
+    startPomodoroInterval();
     setIsPause(false);
   };
 
   const handlePause = () => {
-    pauseInterval();
+    pausePomodoroInterval();
     setIsPause(true);
   };
 
   const handleReset = () => {
-    pauseInterval();
+    pausePomodoroInterval();
     setIsPause(true);
     setRemainTime(FOCUS_TIME);
   };

@@ -10,28 +10,28 @@ const LAST_RESET_TIME = "lastResetTime";
  */
 const updateLocalStorage = (state) => {
   localStorage.setItem(SLICE_NAME, JSON.stringify(state.value));
+
+  const updateTime = Date.now();
+  localStorage.setItem(LAST_RESET_TIME, JSON.stringify(updateTime));
 };
 
-/**
- * Check if it's past 6 AM and reset the value if it is.
- * @param {Object} state
- * @param {number} state.value
- */
-const checkAndResetAtSixAM = (state) => {
-  const now = new Date();
-  const lastResetTimeStr = localStorage.getItem(LAST_RESET_TIME);
-  const lastResetTime = lastResetTimeStr ? new Date(lastResetTimeStr) : null;
+/** 매 6시에 값 초기화 */
+const checkLastUpdate = () => {
+  const INTIALIZE_TIME = 6;
 
-  // If there's no record of the last reset time or it's a new day past 6 AM
-  if (
-    !lastResetTime ||
-    now.getDate() !== lastResetTime.getDate() ||
-    now.getHours() >= 6
-  ) {
-    state.value = 0;
-    localStorage.setItem(LAST_RESET_TIME, now.toISOString());
+  const lastUpdateTime = new Date(localStorage.getItem(LAST_RESET_TIME));
+
+  const currentTime = new Date();
+
+  //초기화 하는 경우 -> 오늘 6시가 지났는데 마지막 업데이트가 오늘 6시 이전일 때
+  if (currentTime.getHours() >= INTIALIZE_TIME) {
+    if (lastUpdateTime.getHours() < INTIALIZE_TIME) {
+      localStorage.setItem(SLICE_NAME, JSON.stringify(0));
+    }
   }
 };
+
+checkLastUpdate();
 
 const localTotalFocusTimeStr = localStorage.getItem(SLICE_NAME);
 
@@ -39,17 +39,11 @@ const initialState = localTotalFocusTimeStr
   ? { value: Number(JSON.parse(localTotalFocusTimeStr)) }
   : { value: 0 };
 
-// Check and reset if necessary when the application starts
-const preloadedState = { ...initialState };
-checkAndResetAtSixAM(preloadedState);
-
 export const totalFocusTimeSlice = createSlice({
   name: SLICE_NAME,
-  initialState: preloadedState,
+  initialState,
   reducers: {
     increment: (state) => {
-      // Ensure the state is checked and reset if needed before incrementing
-      checkAndResetAtSixAM(state);
       state.value += 1;
       updateLocalStorage(state);
     },

@@ -10,7 +10,28 @@ const LAST_RESET_TIME = "lastResetTime";
  */
 const updateLocalStorage = (state) => {
   localStorage.setItem(SLICE_NAME, JSON.stringify(state.value));
+
+  const updateTime = Date.now();
+  localStorage.setItem(LAST_RESET_TIME, JSON.stringify(updateTime));
 };
+
+/** 매 6시에 값 초기화 */
+const checkLastUpdate = () => {
+  const INTIALIZE_TIME = 6;
+
+  const lastUpdateTime = new Date(localStorage.getItem(LAST_RESET_TIME));
+
+  const currentTime = new Date();
+
+  //초기화 하는 경우 -> 오늘 6시가 지났는데 마지막 업데이트가 오늘 6시 이전일 때
+  if (currentTime.getHours() >= INTIALIZE_TIME) {
+    if (lastUpdateTime.getHours() < INTIALIZE_TIME) {
+      localStorage.setItem(SLICE_NAME, JSON.stringify(0));
+    }
+  }
+};
+
+checkLastUpdate();
 
 const localTotalFocusTimeStr = localStorage.getItem(SLICE_NAME);
 

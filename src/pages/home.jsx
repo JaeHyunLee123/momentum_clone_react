@@ -1,10 +1,11 @@
 import Clock from "../components/Clock";
+import Greetings from "../components/Greetings";
 
 const Home = () => {
   return (
     <div>
-      This is home
       <Clock isHidden={false} />
+      <Greetings />
     </div>
   );
 };

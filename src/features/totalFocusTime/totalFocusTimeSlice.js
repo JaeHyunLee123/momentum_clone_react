@@ -25,7 +25,10 @@ const checkLastUpdate = () => {
 
   //초기화 하는 경우 -> 오늘 6시가 지났는데 마지막 업데이트가 오늘 6시 이전일 때
   if (currentTime.getHours() >= INTIALIZE_TIME) {
-    if (lastUpdateTime.getHours() < INTIALIZE_TIME) {
+    if (
+      lastUpdateTime.getHours() < INTIALIZE_TIME ||
+      lastUpdateTime.getDate() < currentTime.getDate()
+    ) {
       localStorage.setItem(SLICE_NAME, JSON.stringify(0));
     }
   }

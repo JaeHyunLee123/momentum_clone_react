@@ -4,6 +4,8 @@ import Clock from "../components/Clock";
 import Greetings from "../components/Greetings";
 import Pomodoro from "../components/Pomodoro";
 import Header from "../components/Header";
+import TodoInput from "../components/TodoInput";
+import TodoList from "../components/TodoList";
 import TotalFocusTime from "../features/totalFocusTime/TotalFocusTime";
 import { createGlobalStyle } from "styled-components";
 
@@ -19,7 +21,8 @@ const GlobalStyle = createGlobalStyle`
     background-size: cover;
     background-attachment: fixed;
     width: 97vw;
-    height: 100vh;
+    height: 97vh;
+
   }
 `;
 
@@ -33,6 +36,10 @@ const Home = () => {
       <Clock isHidden={!isClock} setIsClock={setIsClock} />
       <Pomodoro isHidden={isClock} setIsClock={setIsClock} />
       <Greetings />
+
+      <TodoInput />
+      <TodoList />
+
       <TotalFocusTime />
     </div>
   );

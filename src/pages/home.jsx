@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Background from "../components/Background";
 import Clock from "../components/Clock";
 import Greetings from "../components/Greetings";
 import Pomodoro from "../components/Pomodoro";
@@ -16,8 +17,12 @@ const GlobalStyle = createGlobalStyle`
     color: whitesmoke;
     background-repeat: no-repeat;
     background-position: center;
+    background-image: url(${Background});
+    background-size: cover;
+    background-attachment: fixed;
     width: 97vw;
     height: 97vh;
+
   }
 `;
 
@@ -31,8 +36,10 @@ const Home = () => {
       <Clock isHidden={!isClock} setIsClock={setIsClock} />
       <Pomodoro isHidden={isClock} setIsClock={setIsClock} />
       <Greetings />
+
       <TodoInput />
       <TodoList />
+
       <TotalFocusTime />
     </div>
   );

@@ -64,6 +64,7 @@ const Home = () => {
         <Header />
         <Clock isHidden={!isClock} setIsClock={setIsClock} />
         <Pomodoro isHidden={isClock} setIsClock={setIsClock} />
+        <div style={{ height: "20px" }}></div>
         <Greetings />
         <InsideWrapper>
           <div style={{ width: "33%" }}></div>

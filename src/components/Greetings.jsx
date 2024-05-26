@@ -32,11 +32,11 @@ const Greeting = styled.h1`
 `;
 
 const Greetings = () => {
-  const [name, setName] = useState('');
-  const [storedName, setStoredName] = useState('');
+  const [name, setName] = useState("");
+  const [storedName, setStoredName] = useState("");
 
   useEffect(() => {
-    const savedName = localStorage.getItem('username');
+    const savedName = localStorage.getItem("username");
     if (savedName) {
       setStoredName(savedName);
     }
@@ -44,7 +44,7 @@ const Greetings = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem('username', name);
+    localStorage.setItem("username", name);
     setStoredName(name);
   };
 

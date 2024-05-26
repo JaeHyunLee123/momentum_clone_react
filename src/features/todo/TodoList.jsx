@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { modify, remove, complete } from "../features/todo/todoSlice";
+import { modify, remove, complete } from "./todoSlice";
 
 const List = styled.ul`
   display: flex;

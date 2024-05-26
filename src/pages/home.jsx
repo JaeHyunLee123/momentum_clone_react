@@ -7,8 +7,8 @@ import Header from "../components/Header";
 
 import Quotes from "../components/Quotes";
 
-import TodoInput from "../components/TodoInput";
-import TodoList from "../components/TodoList";
+import TodoInput from "../features/todo/TodoInput";
+import TodoList from "../features/todo/TodoList";
 
 import TotalFocusTime from "../features/totalFocusTime/TotalFocusTime";
 import { createGlobalStyle } from "styled-components";

@@ -12,7 +12,7 @@ const List = styled.ul`
 
 const Item = styled.li`
   margin-bottom: 15px;
-  width: 220px;
+  width: 380px;
 
   & span {
     font-size: 25px;

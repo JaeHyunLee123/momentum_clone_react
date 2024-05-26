@@ -13,6 +13,7 @@ import TodoList from "../components/TodoList";
 import TotalFocusTime from "../features/totalFocusTime/TotalFocusTime";
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
+import { maxWidth } from "../global";
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
@@ -41,7 +42,7 @@ const InsideWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: ${maxWidth}px) {
     flex-direction: column;
   }
 `;

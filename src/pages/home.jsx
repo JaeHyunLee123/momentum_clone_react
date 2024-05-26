@@ -7,8 +7,8 @@ import Header from "../components/Header";
 
 import Quotes from "../components/Quotes";
 
-import TodoInput from "../components/TodoInput";
-import TodoList from "../components/TodoList";
+import TodoInput from "../features/todo/TodoInput";
+import TodoList from "../features/todo/TodoList";
 
 import TotalFocusTime from "../features/totalFocusTime/TotalFocusTime";
 import { createGlobalStyle } from "styled-components";
@@ -41,9 +41,9 @@ const Wrapper = styled.div`
 const InsideWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   @media screen and (max-width: ${maxWidth}px) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -51,7 +51,21 @@ const TodoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 33%;
+
+  @media screen and (max-width: ${maxWidth}px) {
+    width: 100%;
+  }
+`;
+
+const TotalFocusTimeWrapper = styled.div`
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: ${maxWidth}px) {
+    width: 100%;
+  }
 `;
 
 const Home = () => {
@@ -74,11 +88,9 @@ const Home = () => {
             <TodoList />
           </TodoWrapper>
 
-          <div
-            style={{ width: "33%", display: "flex", justifyContent: "center" }}
-          >
+          <TotalFocusTimeWrapper>
             <TotalFocusTime />
-          </div>
+          </TotalFocusTimeWrapper>
         </InsideWrapper>
         <Quotes />
       </Wrapper>

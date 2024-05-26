@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
+import { maxWidth } from "../global";
 
 const API_KEY = "248e737097da22a4fd455191bad84c83";
 
@@ -11,6 +12,10 @@ const Wrapper = styled.div`
   span {
     font-size: 2rem;
     margin: 10px 5px 10px 5px;
+
+    @media (max-width: ${maxWidth}px) {
+      font-size: 1rem;
+    }
   }
 `;
 

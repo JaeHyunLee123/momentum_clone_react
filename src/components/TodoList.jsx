@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { modify, remove, complete } from '../features/todo/todoSlice';
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
+import { modify, remove, complete } from "../features/todo/todoSlice";
 
 const List = styled.ul`
   display: flex;
@@ -44,27 +44,27 @@ const Input = styled.input`
 `;
 
 export default function TodoList() {
-  const todolist = useSelector(state => state.todo);
+  const todolist = useSelector((state) => state.todo);
   const dispatch = useDispatch();
 
   const [editingId, setEditingId] = useState(null);
-  const [editingText, setEditingText] = useState('');
+  const [editingText, setEditingText] = useState("");
 
   useEffect(() => {
-    const storedTodos = JSON.parse(localStorage.getItem('todos'));
+    const storedTodos = JSON.parse(localStorage.getItem("todos"));
     if (storedTodos) {
-      dispatch({ type: 'todo/initialize', payload: storedTodos });
+      dispatch({ type: "todo/initialize", payload: storedTodos });
     }
   }, [dispatch]);
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todolist));
+    localStorage.setItem("todos", JSON.stringify(todolist));
   }, [todolist]);
 
   const handleModify = (id) => {
     dispatch(modify({ id, newText: editingText }));
     setEditingId(null);
-    setEditingText('');
+    setEditingText("");
   };
 
   const pen = "✏️";
@@ -72,43 +72,48 @@ export default function TodoList() {
 
   const todolistView = todolist.map((todo, idx) => (
     <Item key={todolist[idx].id}>
-            {editingId === todolist[idx].id ? (
-              <Input
-                value={editingText}
-                onChange={(e) => setEditingText(e.target.value)}
-                onBlur={() => handleModify(todolist[idx].id)}
-                onKeyPress={(e) => {
-                  if (e.key === 'Enter') handleModify(todolist[idx].id);
-                }}
-              />
-            ) : (
-              <>
-                <input
-                  type="checkbox" 
-                  onChange={()=> dispatch(complete(todolist[idx].id))}
-                />
-                <span></span>
-                <span
-                  style={{
-                    textDecoration: todolist[idx].complete ? 'line-through' : 'none'
-                  }}
-                >
-                  {todolist[idx].text}
-                </span>
-                <button onClick={() => {
-                  setEditingId(todolist[idx].id);
-                  setEditingText(todolist[idx].text);
-                }}>{pen}</button>
-                <button onClick={() => dispatch(remove(todolist[idx].id))}>{trash}</button>
-              </>
-            )}
+      {editingId === todolist[idx].id ? (
+        <Input
+          value={editingText}
+          onChange={(e) => setEditingText(e.target.value)}
+          onBlur={() => handleModify(todolist[idx].id)}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") handleModify(todolist[idx].id);
+          }}
+        />
+      ) : (
+        <>
+          <input
+            type="checkbox"
+            onChange={() => dispatch(complete(todolist[idx].id))}
+          />
+          <span></span>
+          <span
+            style={{
+              textDecoration: todolist[idx].complete ? "line-through" : "none",
+            }}
+          >
+            {todolist[idx].text}
+          </span>
+          <button
+            onClick={() => {
+              setEditingId(todolist[idx].id);
+              setEditingText(todolist[idx].text);
+            }}
+          >
+            {pen}
+          </button>
+          <button onClick={() => dispatch(remove(todolist[idx].id))}>
+            {trash}
+          </button>
+        </>
+      )}
     </Item>
   ));
 
-
   return (
     <>
-      <List>{todolistView}</List>   
+      <List>{todolistView}</List>
     </>
   );
-};
+}

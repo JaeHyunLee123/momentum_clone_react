@@ -54,6 +54,15 @@ const TodoWrapper = styled.div`
   width: 33%;
 `;
 
+const TotalFocusTimeWrapper = styled.div`
+  width: 33%;
+  display: flex;
+  justify-content: "center";
+  @media screen and (max-width: ${maxWidth}px) {
+    width: 100%;
+  }
+`;
+
 const Home = () => {
   const [isClock, setIsClock] = useState(true);
 
@@ -74,11 +83,9 @@ const Home = () => {
             <TodoList />
           </TodoWrapper>
 
-          <div
-            style={{ width: "33%", display: "flex", justifyContent: "center" }}
-          >
+          <TotalFocusTimeWrapper>
             <TotalFocusTime />
-          </div>
+          </TotalFocusTimeWrapper>
         </InsideWrapper>
         <Quotes />
       </Wrapper>

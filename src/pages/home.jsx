@@ -51,7 +51,12 @@ const TodoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 33%;
+
+  @media screen and (max-width: ${maxWidth}px) {
+    width: 100%;
+  }
 `;
 
 const TotalFocusTimeWrapper = styled.div`

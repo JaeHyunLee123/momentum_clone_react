@@ -17,7 +17,6 @@ const Wrapper = styled.div`
   margin: 10px 20px 10px 20px;
 
   span {
-    color: whitesmoke;
     font-size: 1.5rem;
     text-align: center;
     margin: 5px;

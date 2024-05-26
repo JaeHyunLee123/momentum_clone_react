@@ -12,6 +12,8 @@ import TodoList from "../components/TodoList";
 
 import TotalFocusTime from "../features/totalFocusTime/TotalFocusTime";
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
+import { maxWidth } from "../global";
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
@@ -30,26 +32,56 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+`;
+
+const InsideWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: ${maxWidth}px) {
+    flex-direction: column;
+  }
+`;
+
+const TodoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 33%;
+`;
+
 const Home = () => {
   const [isClock, setIsClock] = useState(true);
 
   return (
     <div>
       <GlobalStyle />
-      <Header />
-      <Clock isHidden={!isClock} setIsClock={setIsClock} />
-      <Pomodoro isHidden={isClock} setIsClock={setIsClock} />
-      <Greetings />
+      <Wrapper>
+        <Header />
+        <Clock isHidden={!isClock} setIsClock={setIsClock} />
+        <Pomodoro isHidden={isClock} setIsClock={setIsClock} />
+        <div style={{ height: "20px" }}></div>
+        <Greetings />
+        <InsideWrapper>
+          <div style={{ width: "33%" }}></div>
 
-      <TotalFocusTime />
-      
+          <TodoWrapper>
+            <TodoInput />
+            <TodoList />
+          </TodoWrapper>
 
-
-      <TodoInput />
-      <TodoList />
-      <Quotes />
-
-
+          <div
+            style={{ width: "33%", display: "flex", justifyContent: "center" }}
+          >
+            <TotalFocusTime />
+          </div>
+        </InsideWrapper>
+        <Quotes />
+      </Wrapper>
     </div>
   );
 };

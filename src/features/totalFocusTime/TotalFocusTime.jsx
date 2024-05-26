@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { convertSeconds } from "../../libs/utils";
 import styled from "styled-components";
+import { maxWidth } from "../../global";
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,14 +18,20 @@ const Wrapper = styled.div`
   margin: 10px 20px 10px 20px;
 
   span {
-    color: whitesmoke;
     font-size: 1.5rem;
     text-align: center;
     margin: 5px;
+
+    @media screen and (max-width: ${maxWidth}px) {
+      font-size: 1rem;
+    }
   }
 
   span: nth-child(2) {
     font-size: 2rem;
+    @media screen and (max-width: ${maxWidth}px) {
+      font-size: 1.5rem;
+    }
   }
 `;
 

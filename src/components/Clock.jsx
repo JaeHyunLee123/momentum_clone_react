@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import ClockBtn from "./ClockBtn";
+import { maxWidth } from "../global";
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,6 +23,10 @@ const Time = styled.h1`
   margin-bottom: 30px;
   text-align: center;
   font-size: 8rem;
+
+  @media screen and (max-width: ${maxWidth}px) {
+    font-size: 5rem;
+  }
 `;
 
 /**

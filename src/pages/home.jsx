@@ -41,9 +41,9 @@ const Wrapper = styled.div`
 const InsideWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   @media screen and (max-width: ${maxWidth}px) {
     flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -57,7 +57,7 @@ const TodoWrapper = styled.div`
 const TotalFocusTimeWrapper = styled.div`
   width: 33%;
   display: flex;
-  justify-content: "center";
+  justify-content: center;
   @media screen and (max-width: ${maxWidth}px) {
     width: 100%;
   }

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { maxWidth } from "../global";
 
 const Footer = styled.footer`
   position: absolute;
@@ -11,7 +12,7 @@ const Quote = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${maxWidth}px) {
     flex-direction: column;
     align-items: center;
   }
@@ -19,17 +20,18 @@ const Quote = styled.div`
 
 const QuoteSpan = styled.span`
   font-size: 25px;
-  
+
   &:first-child {
     margin-right: 20px;
 
-    @media (max-width: 1200px) {
+    @media (max-width: ${maxWidth}px) {
       margin: 0px;
     }
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${maxWidth}px) {
     text-align: center;
+    font-size: 1rem;
   }
 `;
 
@@ -44,7 +46,8 @@ const Quotes = () => {
       author: "John Lennon",
     },
     {
-      quote: "The world is a book and those who do not travel read only one page",
+      quote:
+        "The world is a book and those who do not travel read only one page",
       author: "Saint Augustine",
     },
     {

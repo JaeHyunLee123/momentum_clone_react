@@ -14,6 +14,9 @@ const Item = styled.li`
   margin-bottom: 15px;
   width: 380px;
 
+  display: flex;
+  justify-content: center;
+
   & span {
     font-size: 25px;
     margin-right: 10px;

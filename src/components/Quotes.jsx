@@ -2,7 +2,15 @@ import styled from "styled-components";
 import { maxWidth } from "../global";
 
 const Footer = styled.footer`
-  margin: 20px 0px 20px 0px;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  @media (max-width: ${maxWidth}px) {
+    margin: 20px 0px 20px 0px;
+    position: relative;
+  }
 `;
 
 const Quote = styled.div`

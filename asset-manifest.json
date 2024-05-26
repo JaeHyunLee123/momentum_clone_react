@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/momentum_clone_react/static/css/main.2ada769f.css",
+    "main.js": "/momentum_clone_react/static/js/main.9f0fde70.js",
+    "static/js/453.cb342694.chunk.js": "/momentum_clone_react/static/js/453.cb342694.chunk.js",
+    "static/js/885.8f69813f.chunk.js": "/momentum_clone_react/static/js/885.8f69813f.chunk.js",
+    "static/media/3.jpg": "/momentum_clone_react/static/media/3.61a3e37984a0f87cb681.jpg",
+    "static/media/1.jpg": "/momentum_clone_react/static/media/1.4adc251eccaccf9a1743.jpg",
+    "static/media/2.jpg": "/momentum_clone_react/static/media/2.b1056b008c3c516f54b6.jpg",
+    "static/media/5.jpg": "/momentum_clone_react/static/media/5.074b4c630727e02f9dad.jpg",
+    "static/media/4.jpg": "/momentum_clone_react/static/media/4.0a7b6102b9ef3ea2b12c.jpg",
+    "static/media/beep-sound.mp3": "/momentum_clone_react/static/media/beep-sound.b4e3bf8a7697cf33f2e9.mp3",
+    "index.html": "/momentum_clone_react/index.html",
+    "main.2ada769f.css.map": "/momentum_clone_react/static/css/main.2ada769f.css.map",
+    "main.9f0fde70.js.map": "/momentum_clone_react/static/js/main.9f0fde70.js.map",
+    "453.cb342694.chunk.js.map": "/momentum_clone_react/static/js/453.cb342694.chunk.js.map",
+    "885.8f69813f.chunk.js.map": "/momentum_clone_react/static/js/885.8f69813f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2ada769f.css",
+    "static/js/main.9f0fde70.js"
+  ]
+}

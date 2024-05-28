@@ -54,7 +54,7 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <span>{`${location} ${temp}℃ ${weather}`}</span>
+      {location ? <span>{`${location} ${temp}℃ ${weather}`}</span> : ""}
     </Wrapper>
   );
 };

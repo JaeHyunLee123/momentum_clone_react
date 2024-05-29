@@ -17,10 +17,8 @@ const Quote = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (max-width: ${maxWidth}px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  flex-direction: column;
+  align-items: center;
 `;
 
 const QuoteSpan = styled.span`
@@ -72,7 +70,7 @@ const Quotes = () => {
       author: "Mae West",
     },
     {
-      quote: "Never go on trips with anyone you do ntot love",
+      quote: "Never go on trips with anyone you do not love",
       author: "Hemmingway",
     },
     {

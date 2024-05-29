@@ -17,10 +17,8 @@ const Quote = styled.div`
   display: flex;
   justify-content: center;
 
-  @media (max-width: ${maxWidth}px) {
-    flex-direction: column;
-    align-items: center;
-  }
+  flex-direction: column;
+  align-items: center;
 `;
 
 const QuoteSpan = styled.span`
